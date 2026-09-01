@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+        <title>ouuu</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background: linear-gradient(#fff, #83ecc6);
+                margin: 0;
+                cursor: pointer;
+                
+            }
+            .pika{
+                position: relative;
+                width: 140px;
+                height: 130px;
+                animation: bob 1.5s ease-in-out infinite;
+                border: 1px solid #8b5a2b; 
+                border-radius: 70px 70px 60px 60px;
+                box-shadow: inset 0 6px 12px rgba(0, 0, 0, 0.15);
+                background: #e0c09a;
+            }
+            
+            
+            .body {
+                width: 140px;
+                height: 130px;
+                background: #e9c190;
+                border-radius: 70px 70px 60px 60px;
+                
+                position: relative;
+                bottom: 0;
+               box-shadow: inset 0 -15px 20px rgba(0,0,0,0.1), inset 18px 0 15px rgba(0,0,0,0.05);
+               
+            }
+            .body::after {
+                content: '';
+                 border: #412c1e;
+            }
+            .ear {
+                width: 32px;
+                height: 44px;
+                background: #e0c09a;
+                border-radius: 50% 50% 35% 35%;
+                position: absolute;
+                top: -15px;
+                animation: wiggle 0.5s ease-in-out infinite;
+                border: 0.5px solid #8b5a2b;
+                box-shadow: inset 0 -5px 8px rgba(0,0,0,0.08);
+                background: #e0c09a;
+            }
+            .ear::after {
+                content: '';
+                width: 18px;
+                height: 20px;
+                background: #473223;
+                border-radius: 50% 50% 45% 45%;
+                position: absolute;
+                top: 10px;
+                left: 6px;
+            }
+            .ear.left { left: 15px; }
+            .ear.right { right: 15px; animation-delay: 1s; }
+
+            .eye {
+                width: 14px;
+                height: 14px;
+                background: radial-gradient(circle at 30% 30%, #424242, #000);
+                position: absolute;
+                top: 40px;
+                animation: blink 2.5s infinite;
+                border-radius: 50%;
+                box-shadow: inset 0 2px 3px rgba(0,0,0,0.4);
+            
+            }
+            .eye::after {
+                content: '';
+                width: 4px;
+                height: 4px;
+                background: white;
+                border-radius: 50%;
+                position: absolute;
+                top: 2px;
+                left: 3px;
+            }
+            .eye.left { left: 40px; }
+            .eye.right { right: 40px; animation-delay: 0.15s; }
+
+            .nose {
+                width: 12px;
+                height: 10px;
+                background: #573926;
+                position: absolute;
+                top: 60px;
+                left: 70px;
+                border-radius: 35%;
+                transform: translateX(-50%);
+                box-shadow: inset 0 -2px 3px rgba(0,0,0,0.3);
+
+            }
+            .cheek {
+                width: 20px;
+                height: 14px;
+                background: radial-gradient(circle, rgba(252, 4, 33, 0.4), transparent 80%);
+                border-radius: 50%;
+                position: absolute;
+                top: 50px;
+            }
+            .cheek.left { left: 25px; }
+            .cheek.right { right: 25px; }
+
+            .grass {
+                width: 20px;
+                height: 30px;
+                background: linear-gradient(to top, #2e7d32, #4CAF50);
+                border-radius: 10px;
+                position: absolute;
+                top: 90px;
+                left: 45%;
+                animation: chew 3s ease-in-out infinite;
+
+            }
+            
+            
+
+
+            
+            @keyframes bob {
+                0%, 100% { transform: translateY(3); }
+                50% { transform: translateY(-10px); }
+            }
+            @keyframes wiggle {
+                0%, 100% { transform: rotate(-10deg); }
+                25%, 75% { transform: rotate(0);}
+                50% { transform: rotate(10deg); }
+
+            }
+            @keyframes blink {
+                0%, 90%, 100% { transform: scaleY(1); }
+                95% { transform: scaleY(0.1); }
+            }
+            @keyframes chew {
+                0%, 100% { transform: translateX(-50%) rotate(-10deg); }
+
+                50% { transform: translateY(-50%) rotate(0); }
+               
+                
+            }
+            audio {
+                background: #2e7d32;
+                border: 2px solid #b8964e;
+                padding: 12px 24px;
+                border-radius: 40px;
+                width: 300px;
+                height: 50px;
+                box-shadow: 0 5px 15px rgba(139, 90, 43, 0.5);
+            }
+            audio:hover {
+                background: #b8964e;
+                transform: 0.2s;
+                border: 2px solid #2e7d32;
+                box-shadow: 0 5px 15px rgba(139, 90, 43, o.5); 
+            }
+            .player-wrap {
+                position: relative;
+                width: 300px;
+                margin: 10px auto; 
+            }
+            .pika-caption {
+                position: relative;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-shadow: 0 1px 3px rgba(0,0,0,0.08);
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                font-size: 0.85rem;
+                color: #8b5a2b;
+                z-index: 2;
+                margin: 0;
+                letter-spacing: 0.5px;
+                white-space: nowrap;
+                pointer-events: none;
+                font-size: medium;
+                font-weight: 200;
+                font-style: oblique;
+            }
+            audio {
+                display: block;
+            }
+            .scene 
+        {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 80px;
+        }
+        </style>
+
+    </head>
+    <body>
+        <div class="scene">
+        <div class="pika">
+            <div class="ear right"></div>
+            <div class="ear left"></div>
+            <div class="body">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="cheek left"></div>
+            <div class="cheek right"></div>
+            <div class="nose"></div>
+            <div class="grass"></div>
+            </div>
+            </div>
+            <div class="player-wrap">
+            <p class="pika-caption">Do you want to watch the stars with me?</p>
+            <audio controls volume loop>
+            <source src="alex-morgan-lofi-study-session-568160.mp3" type="audio/mp3"
+           </audio>
+        </div>
+        </div>
+        </body>
+</html> 
